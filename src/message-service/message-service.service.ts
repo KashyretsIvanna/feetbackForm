@@ -1,9 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { CreateMessageDto } from 'src/feedbacks/dto/createMessage.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Feedback } from 'src/feedbacks/feedback.entity';
-import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class MessageService {

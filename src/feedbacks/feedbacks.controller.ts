@@ -12,8 +12,7 @@ import {
 } from '@nestjs/common';
 import { MessageService } from 'src/message-service/message-service.service';
 import { CreateMessageDto } from './dto/createMessage.dto';
-import { updateMessageDto } from './dto/updateMessageDto';
-import { Feedback } from './feedback.entity';
+
 
 @Controller('feedbacks')
 export class FeedbacksController {
