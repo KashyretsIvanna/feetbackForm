@@ -17,6 +17,7 @@ export class FeedbacksController {
   constructor(private readonly messageService: MessageService) {}
 
   @Get()
+  @Header('Access-Control-Allow-Origin', '*')
   @Header('Content-Type', 'application/json')
   @HttpCode(HttpStatus.FOUND)
   getAll(): object {
@@ -24,6 +25,7 @@ export class FeedbacksController {
   }
 
   @Get(':id')
+  @Header('Access-Control-Allow-Origin', '*')
   @Header('Content-Type', 'application/json')
   @HttpCode(HttpStatus.FOUND)
   getOne(@Param('id') id: number): object | null {
@@ -31,6 +33,7 @@ export class FeedbacksController {
   }
 
   @Post()
+  @Header('Access-Control-Allow-Origin', '*')
   @Header('Content-Type', 'application/json')
   @HttpCode(HttpStatus.CREATED)
   createMessage(@Body() CreateMessageDto: CreateMessageDto): object {
@@ -38,6 +41,7 @@ export class FeedbacksController {
   }
 
   @Delete(':id')
+  @Header('Access-Control-Allow-Origin', '*')
   @HttpCode(HttpStatus.MOVED_PERMANENTLY)
   @Header('Content-Type', 'application/json')
   deleteMessage(@Param('id') id: number) {
