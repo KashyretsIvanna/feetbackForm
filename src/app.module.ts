@@ -13,9 +13,9 @@ dotenv.config();
     TypeOrmModule.forRoot({
       type: 'mysql',
       host:process.env.HOST,
-      port:Number(process.env.PORT),
-      username: process.env.USERNAME,
-      password: process.env.BASE_PASSWORD,
+      port:3306,
+      username:"root",
+      password: process.env.PASSWORD,
       database: 'feedbacks',
       entities: [Feedback],
       synchronize: true,
