@@ -14,7 +14,7 @@ dotenv.config();
       type: 'mysql',
       host:process.env.HOST,
       port:3306,
-      username:"root",
+      username:process.env.USERNAME,
       password: process.env.PASSWORD,
       database: 'feedbacks',
       entities: [Feedback],
