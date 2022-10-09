@@ -10,7 +10,7 @@ import {
   Body,
   Header,
 } from '@nestjs/common';
-import { MessageService } from 'src/message-service/message-service.service';
+import { MessageService } from '../message-service/message-service.service';
 import { CreateMessageDto } from './dto/createMessage.dto';
 
 
