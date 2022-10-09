@@ -15,7 +15,7 @@ dotenv.config();
       host:"us-cdbr-east-06.cleardb.net",
       port:3306,
       username:"b015a13af4b200",
-      password: "86b94982",
+      password: process.env.PASSWORD,
       database: 'heroku_11d8aa7030a557a',
       entities: [Feedback],
       synchronize: true,
