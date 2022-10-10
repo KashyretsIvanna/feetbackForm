@@ -8,7 +8,7 @@ import {
   Delete,
   Body,
   Header,
-  Req
+  Req,
 } from '@nestjs/common';
 import { MessageService } from '../message-service/message-service.service';
 import { CreateMessageDto } from './dto/createMessage.dto';
@@ -32,13 +32,22 @@ export class FeedbacksController {
     return this.messageService.getById(id);
   }
 
+  // @Post()
+  // @Header('Access-Control-Allow-Origin', '*')
+  // @Header('Access-Control-Allow-Methods', '*')
+  // @HttpCode(HttpStatus.CREATED)
+  // createMessage(@Req() CreateMessageDto: CreateMessageDto):object {
+  //   this.messageService.createMessage(CreateMessageDto)
+  //   return CreateMessageDto;
+  // }
+
   @Post()
   @Header('Access-Control-Allow-Origin', '*')
   @Header('Access-Control-Allow-Methods', '*')
   @HttpCode(HttpStatus.CREATED)
-  createMessage(@Req() CreateMessageDto: CreateMessageDto):object {
-    this.messageService.createMessage(CreateMessageDto)
-    return CreateMessageDto;
+  createMessage(@Body() body: any): object {
+    // this.messageService.createMessage(CreateMessageDto)
+    return body;
   }
 
   @Delete(':id')
