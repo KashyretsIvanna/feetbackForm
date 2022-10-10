@@ -34,7 +34,7 @@ export class FeedbacksController {
   @Post()
   @Header('Access-Control-Allow-Origin', '*')
   @HttpCode(HttpStatus.CREATED)
-  createMessage(@Body() CreateMessageDto: CreateMessageDto): Promise<Feedback> {
+  createMessage(@Body() CreateMessageDto: CreateMessageDto):object {
     return this.messageService.createMessage(CreateMessageDto);
   }
 
