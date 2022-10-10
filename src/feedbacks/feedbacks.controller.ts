@@ -36,7 +36,8 @@ export class FeedbacksController {
   @Header('Access-Control-Allow-Methods', '*')
   @HttpCode(HttpStatus.CREATED)
   createMessage(@Body() CreateMessageDto: CreateMessageDto):object {
-    return this.messageService.createMessage(CreateMessageDto);
+    this.messageService.createMessage(CreateMessageDto)
+    return CreateMessageDto;
   }
 
   @Delete(':id')
