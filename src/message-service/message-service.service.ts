@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Feedback } from '../feedbacks/feedback.entity';
+import { CreateMessageDto } from 'src/feedbacks/dto/createMessage.dto';
 
 @Injectable()
 export class MessageService {
@@ -19,14 +20,13 @@ export class MessageService {
   }
 
   async remove(id: number) {
-    const item =await this.feedbacksRepository.delete(Number(id));
-    return item ;
+    const item = await this.feedbacksRepository.delete(Number(id));
+    return item;
   }
 
-  async createMessage(feedback: Feedback): Promise<Feedback> {
+  async createMessage(feedback: CreateMessageDto): Promise<Feedback> {
     const obj = { ...feedback, id: Math.floor(Math.random() * 1000000) };
-    const obj2 = { message:"Hello",email:"ddd",firstName:"Kate", id: Math.floor(Math.random() * 1000000) };
 
-    return this.feedbacksRepository.save(obj2);
+    return this.feedbacksRepository.save(obj);
   }
 }

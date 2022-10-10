@@ -11,6 +11,7 @@ import {
 } from '@nestjs/common';
 import { MessageService } from '../message-service/message-service.service';
 import { CreateMessageDto } from './dto/createMessage.dto';
+import { Feedback } from './feedback.entity';
 
 @Controller('feedbacks')
 export class FeedbacksController {
@@ -33,9 +34,8 @@ export class FeedbacksController {
   @Post()
   @Header('Access-Control-Allow-Origin', '*')
   @HttpCode(HttpStatus.CREATED)
-  createMessage(@Body() CreateMessageDto: CreateMessageDto): object {
-    this.messageService.createMessage(CreateMessageDto)
-    return {message:"created"};
+  createMessage(@Body() CreateMessageDto: CreateMessageDto): Promise<Feedback> {
+    return this.messageService.createMessage(CreateMessageDto);
   }
 
   @Delete(':id')

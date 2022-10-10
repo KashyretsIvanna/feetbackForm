@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Feedback {
-  @PrimaryGeneratedColumn()
+  @Column()
   id: number;
 
   @Column()
@@ -14,4 +14,3 @@ export class Feedback {
   @Column()
   message: string;
 }
-
