@@ -34,11 +34,13 @@ export class FeedbacksController {
   @Header('Access-Control-Allow-Origin', '*')
   @HttpCode(HttpStatus.CREATED)
   createMessage(@Body() CreateMessageDto: CreateMessageDto): object {
-    return this.messageService.createMessage(CreateMessageDto);
+    this.messageService.createMessage(CreateMessageDto)
+    return {message:"created"};
   }
 
   @Delete(':id')
   @Header('Access-Control-Allow-Origin', '*')
+  @Header('Access-Control-Allow-Methods', '*')
   @HttpCode(HttpStatus.MOVED_PERMANENTLY)
   deleteMessage(@Param('id') id: number) {
     const response = this.messageService.remove(id);
