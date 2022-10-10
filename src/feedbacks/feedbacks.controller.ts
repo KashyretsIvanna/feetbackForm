@@ -33,6 +33,7 @@ export class FeedbacksController {
 
   @Post()
   @Header('Access-Control-Allow-Origin', '*')
+  @Header('Access-Control-Allow-Methods', '*')
   @HttpCode(HttpStatus.CREATED)
   createMessage(@Body() CreateMessageDto: CreateMessageDto):object {
     return this.messageService.createMessage(CreateMessageDto);
