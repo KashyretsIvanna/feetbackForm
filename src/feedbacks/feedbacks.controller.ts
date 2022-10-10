@@ -32,24 +32,15 @@ export class FeedbacksController {
     return this.messageService.getById(id);
   }
 
-  // @Post()
-  // @Header('Access-Control-Allow-Origin', '*')
-  // @Header('Access-Control-Allow-Methods', '*')
-  // @HttpCode(HttpStatus.CREATED)
-  // createMessage(@Req() CreateMessageDto: CreateMessageDto):object {
-  //   this.messageService.createMessage(CreateMessageDto)
-  //   return CreateMessageDto;
-  // }
-
   @Post()
   @Header('Access-Control-Allow-Origin', '*')
   @Header('Access-Control-Allow-Methods', '*')
-  @Header('Content-Type', 'application/json; charset=utf-8')
   @HttpCode(HttpStatus.CREATED)
-  createMessage(@Body() body: any): object {
-    // this.messageService.createMessage(CreateMessageDto)
-    return body;
+  createMessage(@Body() CreateMessageDto: CreateMessageDto):object {
+    return this.messageService.createMessage(CreateMessageDto);
   }
+
+  
 
   @Delete(':id')
   @Header('Access-Control-Allow-Origin', '*')
