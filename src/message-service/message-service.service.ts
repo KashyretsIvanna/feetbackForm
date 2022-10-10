@@ -25,7 +25,6 @@ export class MessageService {
 
   async createMessage(feedback: Feedback): Promise<Feedback> {
     const obj = { ...feedback, id: Math.floor(Math.random() * 1000000) };
-    this.feedbacksRepository.save(obj);
-    return obj;
+    return this.feedbacksRepository.save(obj);
   }
 }
